@@ -19,12 +19,12 @@ public class MyArrayList {
     }
 
     public void remove(int index) {
-        if (index < size) {
-            System.arraycopy(data, index + 1, data, index, size - index - 1);
-            size--;
-        } else {
+        if (index < 0 || index >= this.size) {
             throw new ArrayIndexOutOfBoundsException();
         }
+
+        System.arraycopy(data, index + 1, data, index, size - index - 1);
+        size--;
     }
 
     public void clear() {
@@ -37,10 +37,9 @@ public class MyArrayList {
     }
 
     public Object get(int index) {
-        if (index < size) {
-            return data[index];
-        } else {
+        if (index < 0 || index >= this.size) {
             throw new ArrayIndexOutOfBoundsException();
         }
+        return data[index];
     }
 }
